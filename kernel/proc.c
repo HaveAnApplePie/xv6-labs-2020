@@ -695,3 +695,17 @@ procdump(void)
     printf("\n");
   }
 }
+
+//lab2 system call sysinfo
+//collect the number of processes
+uint64 collectProcNum(void){
+  uint64 cnt = 0;
+  struct proc *p;
+  
+  for(p = proc; p < &proc[NPROC]; p++) {
+    if(p->state != UNUSED) {
+      ++cnt;
+    }
+  }
+  return cnt;
+}
