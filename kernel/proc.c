@@ -297,6 +297,8 @@ fork(void)
 
   release(&np->lock);
 
+  //lab2 system call tracing
+  np->tracemask = p->tracemask;
   return pid;
 }
 
